@@ -3,11 +3,15 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// You can also log multiple values at once like this  console.log(playerName,  playerAttack, playerHealth);
 
-var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
+var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
+
+console.log(enemyNames);
+console.log(enemyNames.length);
+console.log(enemyNames[0]);
+console.log(enemyNames[3]);
 
 
 var fight = function(enemyName) {
@@ -31,8 +35,8 @@ if (promptFight === "skip" || promptFight === "SKIP") {
     console.log(
         playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
     );
-    // Check ememy health
 
+    // Check ememy health
 if (enemyHealth <= 0) {
     window.alert(enemyName + " has died!");
 
@@ -56,17 +60,18 @@ if (playerHealth <= 0) {
 else {
     window.alert(playerName + " still has " + playerHealth + " health left.");
 }
-};
-};
-if (playerHealth > 0) {
-    window.alert("Welcome to Robot Gladiators! Round ") + (i + 1);
 }
+};
+
+for(var i = 0; i < enemyNames.length; i++) {
+    if (playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+        var pickedEnemyName = enemyNames[i];
+        enemyHealth = 50;
+        fight(pickedEnemyName);
+    }
 else {
     window.alert("You have lost your robot in battle! Game Over!");
     break;
 }
-for(var i = 0; i < enemyNames.length; i++) {
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
-    fight(pickedEnemyName);
-};
+}
