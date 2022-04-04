@@ -27,7 +27,7 @@ if (promptFight === "skip" || promptFight === "SKIP") {
         window.alert(playerName + " has decided to skip this fight. Goodbye!");
         // subtract money from playerMoney for skippihng
         playerMoney = playerMoney - 10;
-        console.log("playerMoney", playerMoney);
+        console.log("playerMoney", playerMoney)
         break;
     }
 }
@@ -90,8 +90,12 @@ else {
     break;
         }
     }
+    endGame();
+};
 // fucntion to end the enitre game
 var endGame = function() {
+    window.alert("The game has now ended . Let's see how you did.");
+
     // if player is still alive, player wins!
     if (playerHealth > 0) {
         window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
@@ -100,9 +104,6 @@ var endGame = function() {
         window.alert("You've lost your robot in battle.");
     }
 
-    window.alert("The game has now ended . Let's see how you did.");
-}
-endGame();
 // ask player if they'd like to play again 
 var playAgainConfirm = window.confirm("Would you like to play again?");
     if (playAgainConfirm) {
