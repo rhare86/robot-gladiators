@@ -2,10 +2,13 @@ var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
-
+var randomNumber = function(min , max) {
+    var value = Math.floor(Math.random() * (max - min +1) + min);
+    return value;
+};
 
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
-var enemyHealth = 50;
+var enemyHealth = randomNumber(40, 60);
 var enemyAttack = 12;
 
 console.log(enemyNames);
@@ -26,12 +29,15 @@ if (promptFight === "skip" || promptFight === "SKIP") {
     if (confirmSkip) {
         window.alert(playerName + " has decided to skip this fight. Goodbye!");
         // subtract money from playerMoney for skippihng
-        playerMoney = playerMoney - 10;
+        playerMoney = Math.max(0,playerMoney - 10);
         console.log("playerMoney", playerMoney)
         break;
     }
 }
-    enemyHealth = enemyHealth - playerAttack;
+    var damage = randomNumber(playerAttack - 3, playerAttack);
+    enemyHealth = Math.max(0, enemyHealth - damage);
+
+    enemyHealth = Math.max(0, enemyHealth - playerAttack);
     console.log(
         playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
     );
@@ -47,7 +53,9 @@ else {
     window.alert(enemyName + " still has " + enemyHealth + " health left.");
 }
 // Subtract the value of enemyAttack form the value of playerHealth and use that result to update the value in playerHealth varialble
-playerHealth = playerHealth - enemyAttack;
+var damage = randomNumber(enemyAttack - 3, enemyAttack);
+
+playerHealth = Math.max(0,playerHealth - damage);
 // Log a resulting message to the console so we know that it worked. 
 console.log(
     enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
@@ -72,7 +80,7 @@ for(var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
         window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
         var pickedEnemyName = enemyNames[i];
-        enemyHealth = 50;
+        enemyHealth = Math.floor(Math.random() * 21) + 40;
         fight(pickedEnemyName);
         //if player is still alive and if we're not at the last enemy in the array
         if (playerHealth >0 && i < enemyNames.length - 1) {
