@@ -1,7 +1,6 @@
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
-<<<<<<< HEAD
 
 // You can also log multiple values at once like this  console.log(playerName,  playerAttack, playerHealth);
 
@@ -38,7 +37,6 @@ console.log(
 
 fight();
 
-=======
 var playerMoney = 10;
 
 
@@ -199,4 +197,3 @@ var shop = function() {
 };
 // start the game when the page loads
 startGame();
->>>>>>> develop
