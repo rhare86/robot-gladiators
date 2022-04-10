@@ -189,29 +189,29 @@ var playAgainConfirm = window.confirm("Would you like to play again?");
 var shop = function() {
     //ask the player what they'd like to do 
     var shopOptionPrompt = window.prompt(
-        "Whould you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+        "Whould you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
         );
         // use switch to carry out action
-        switch   (shopOptionPrompt) {
-            case "REFILL": // new case
-            case "refill":
+    shopOptionPrompt = parseInt(shopOptionPrompt);
+        switch (shopOptionPrompt) {
+            case 1:
                 playerInfo.refillHealth();
-                break;                
-            case "UPGRADE": //new case
-            case "upgrade":
+                break;
+
+            case 2:
                 playerInfo.upgradeAttack();
                 break;
-            case "LEAVE": //new case
-            case "leave": 
+
+            case 3:
                 window.alert("Leaving the store.");
                 break;
-            default:
+
+                default:
                 window.alert("You did not pick a valid option. Try again.");
-                
-                //call shop() again to force player to pick a valid option. 
                 shop();
                 break;
         }
+            
 };
 // start the game when the page loads
 startGame();
